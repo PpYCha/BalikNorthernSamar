@@ -1,0 +1,22 @@
+
+.groupHeader {
+    margin-left: 40px;
+}
+
+.groupContent {
+    margin-left: 40px;
+}
+
+.columnHeader {
+    display: inline-block;
+    font-size: 14px;
+}
+
+.groupColumnContent {
+  text-align: center;
+    margin-left: 60px;
+}
+
+.groupColumnContentInputs {
+
+}
