@@ -5,15 +5,17 @@
     <link rel="shortcut icon" href="images/favicon.nsamarLogo.ico" />
     <title>LSI</title>
     <meta charset="UTF-8" />
-    <!--Bootstrap css-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/custom-design.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Bootstrap css-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/custom-design.css">
     <!-- Latest compiled JavaScript -->
-    <script src="jquery-3.1.1.min.js" type="text/javascript"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/custom.js"></script>
 
     <script type="text/javascript">
+
 
         $(document).ready(function () {
 
@@ -81,10 +83,10 @@
                 <div class="row mb-4">
                     <div class="col-12">
                         <!--Start of Form-->
-                        <form autocomplete="off">
+                        <form autocomplete="off" method="POST" action="index.php">
                             <!--Personal Details-->
                             <div class="card shadow-soft border p-2 mb-2">
-                                <h5 class="en"><strong>A: Head of the Group / Leader</strong></h5>
+                                <h5 class="en"><strong>A: Head of the Group / Individual</strong></h5>
                                 <div class="col-md-12 groupHeader">
                                     <p><strong>PERSONAL DETAILS</strong></p>
                                 </div>
@@ -92,24 +94,24 @@
                                     <div class="col-md-4">
                                         <label style="color: #e85a4f;" class="mr-1">*</label><label
                                             style="color: #66799e;">Firstname</label>
-                                        <input class="form-control form-control-sm mb-2" name="ncrhseblklot"
-                                            id="ncrhseblklot" value="" type="text" required>
+                                        <input class="form-control form-control-sm mb-2" id="firstName" name="firstName"
+                                            value="" type="text" required>
                                     </div>
 
 
                                     <div class="col-md-4">
                                         <label style="color: #e85a4f;" class="mr-1">*</label><label
                                             style="color: #66799e;">Middle name</label>
-                                        <input class="form-control form-control-sm mb-2" name="ncrhseblklot"
-                                            id="ncrhseblklot" value="" type="text" required>
+                                        <input class="form-control form-control-sm mb-2" id="middleName"
+                                            name="middleName" value="" type="text" required>
                                     </div>
 
 
                                     <div class="col-md-4">
                                         <label style="color: #e85a4f;" class="mr-1">*</label><label
                                             style="color: #66799e;">Lastname</label>
-                                        <input class="form-control form-control-sm mb-2" name="ncrhseblklot"
-                                            id="ncrhseblklot" value="" type="text" required="">
+                                        <input class="form-control form-control-sm mb-2" id="lastName" name="lastName"
+                                            value="" type="text" required="">
                                     </div>
                                 </div>
 
@@ -117,8 +119,8 @@
                                     <div class="col-md-4">
                                         <label style="color: rgb(232, 90, 79);" class="en mr-1">*</label><label
                                             class="en" style="color: rgb(102, 121, 158);">Date of Birth</label>
-                                        <input class="form-control form-control-sm mb-2 datepicker" name="dateofbirth"
-                                            value="" id="dateofbirth" type="date" placeholder="mm/dd/yyyy"
+                                        <input class="form-control form-control-sm mb-2 datepicker" id="dateOfBirth"
+                                            name="dateOfBirth" value="" type="date" placeholder="mm/dd/yyyy"
                                             maxlength="10" required>
                                     </div>
 
@@ -127,8 +129,8 @@
                                         <label style="color: rgb(232, 90, 79);" class="en mr-1">*</label><label
                                             class="en" style="color: rgb(102, 121, 158);">Civil Status</label>
 
-                                        <select  class="custom-select custom-select-sm mb-2" name="civilstatus" value=""
-                                            id="civilstatus" required>
+                                        <select class="custom-select custom-select-sm mb-2" id="civilStatus"
+                                            name="civilStatus" value="" required>
                                             <option></option>
                                             <option>Single</option>
                                             <option>Married</option>
@@ -141,9 +143,10 @@
                                         <label style="color: rgb(232, 90, 79);" class="en mr-1">*</label><label
                                             class="en" style="color: rgb(102, 121, 158);">Present Complete
                                             Address:</label>
-                                        <input class="form-control form-control-sm mb-2 datepicker" name="dateofbirth"
-                                            value="" id="dateofbirth" type="text"
-                                            placeholder="House#, St., Brgy, City/Municipality" maxlength="10" required>
+                                        <input class="form-control form-control-sm mb-2 datepicker"
+                                            name="presentCompleteAddress" value="" id="presentCompleteAddress"
+                                            type="text" placeholder="House#, St., Brgy, City/Municipality"
+                                            maxlength="10" required>
                                     </div>
                                 </div>
 
@@ -154,32 +157,31 @@
                                     <div class="col-md-4">
                                         <label style="color: #e85a4f;" class="mr-1">*</label><label
                                             style="color: #66799e;">Contact Number: </label>
-                                        <input class="form-control form-control-sm mb-2" name="ncrhseblklot"
-                                            id="ncrhseblklot" value="" type="text" required="" placeholder="09XXXXXXXXX"
-                                            maxlength="13">
+                                        <input class="form-control form-control-sm mb-2" name="contactNumberHead"
+                                            id="contactNumberHead" value="" type="text" required=""
+                                            placeholder="09XXXXXXXXX" maxlength="13">
                                     </div>
                                     <div class="col-md-6">
                                         <label style="color: #66799e;">Email (Optional): </label>
-                                        <input class="form-control form-control-sm mb-2" name="ncrhseblklot"
-                                            id="ncrhseblklot" value="" type="text" placeholder="example@gmail">
+                                        <input class="form-control form-control-sm mb-2" name="emailHead" id="emailHead"
+                                            value="" type="text" placeholder="example@gmail">
                                     </div>
                                     <div class="col-md-4">
-                                        <label
-                                            style="color: #66799e;">Alt Contact Number: </label>
-                                        <input class="form-control form-control-sm mb-2" name="ncrhseblklot"
-                                            id="ncrhseblklot" value="" type="text"  placeholder="09XXXXXXXXX"
+                                        <label style="color: #66799e;">Alt Contact Number: </label>
+                                        <input class="form-control form-control-sm mb-2" name="altContactNumberHead"
+                                            id="altContactNumberHead" value="" type="text" placeholder="09XXXXXXXXX"
                                             maxlength="13">
                                     </div>
                                     <div class="col-md-6">
                                         <label style="color: #66799e;">Alt Email (Optional): </label>
-                                        <input class="form-control form-control-sm mb-2" name="ncrhseblklot"
-                                            id="ncrhseblklot" value="" type="text" placeholder="example@gmail">
+                                        <input class="form-control form-control-sm mb-2" name="altEmailHead"
+                                            id="altEmailHead" value="" type="text" placeholder="example@gmail">
                                     </div>
                                 </div>
                             </div>
                             <!--Departure-->
                             <div class="card shadow-soft border p-2 mb-2">
-                                <h5 class="en"><strong>B: Departure Details</strong></h5>
+                                <h5 class="en"><strong>B: Travel Details</strong></h5>
                                 <div class="col-md-12 groupHeader">
                                     <p><strong>DESTINATION:</strong></p>
                                 </div>
@@ -188,15 +190,16 @@
                                         <p class="text-danger">
                                             <label style="color: #e85a4f;" class="mr-1">*</label><label
                                                 style="color: #66799e;">Province:</label><br>
-                                            <input class="form-control form-control-sm  mb-2 member"
-                                                name="ncrsubdivision" value="" id="ncrsubdivision" type="text"
+                                            <input class="form-control form-control-sm  mb-2 member" name="province"
+                                                value="Northern Samar" id="province" type="text"
                                                 placeholder="Northern Samar" readonly>
                                         </p>
                                     </div>
                                     <div class="col-md-4">
                                         <label style="color: #e85a4f;" class="mr-1">*</label><label
                                             style="color: #66799e;">Municipality:</label><br>
-                                        <select class="custom-select custom-select-sm mb-2" value="" required>                     
+                                        <select class="custom-select custom-select-sm mb-2" id="municipality"
+                                            name="municipality" value="" required>
                                             <option></option>
                                             <option>Allen</option>
                                             <option>Biri</option>
@@ -229,7 +232,8 @@
                                             <label style="color: #e85a4f;" class="mr-1">*</label><label
                                                 style="color: #66799e;">Vehicle to be used::</label><br>
                                             <select class="form-control form-control-sm  mb-2 member"
-                                                name="ncrsubdivision" value="" id="ncrsubdivision" type="text" required>
+                                                name="vehicleToBeUsed" value="" id="vehicleToBeUsed" type="text"
+                                                required>
                                                 <option></option>
                                                 <option>Public Utility Vehicle</option>
                                                 <option>Private Utilit Vehicle</option>
@@ -237,12 +241,16 @@
                                         </p>
                                     </div>
                                 </div>
+                                <div class="col-md-12 groupHeader">
+                                    <p><strong>DEPARTURE:</strong></p>
+                                </div>
                                 <div class="row mb-2 groupContent">
                                     <div class="col-md-4">
                                         <p class="text-danger">
                                             <label style="color: #e85a4f;" class="mr-1">*</label><label
                                                 style="color: #66799e;">Point of Origin</label><br>
-                                            <input class="form-control form-control-sm mb-2" type="text" required>
+                                            <input class="form-control form-control-sm mb-2" type="text"
+                                                id="pointOfOrigin" name="pointOfOrigin" required>
                                         </p>
                                     </div>
                                     <div class="col-md-4">
@@ -250,13 +258,15 @@
                                             <label style="color: #e85a4f;" class="mr-1">*</label><label
                                                 style="color: #66799e;">Date of travel:</label><br>
                                             <input class="form-control form-control-sm mb-2 datepicker"
-                                                id="dateoftravel" type="date" placeholder="mm/dd/yyyy"  required>
+                                                id="dateOfTravel" name="dateOfTravel" type="date"
+                                                placeholder="mm/dd/yyyy" required>
                                         </p>
                                     </div>
+
                                 </div>
                             </div>
                             <!--Others Members-->
-                            <!--For bigger reso-->               
+                            <!--For bigger reso-->
                             <!--For lower reso-->
                             <div class="card shadow-soft border p-2 mb-2">
                                 <h5 class="en"><strong>C: Other members on the group (Excluding the head /
@@ -274,10 +284,10 @@
                                             </div>
                                             <div class="col-md-3 ">
                                                 <input class="form-control form-control-sm  mb-1 member"
-                                                    placeholder="Present Address" type="text">
+                                                    placeholder="Local or Provincial Address" type="text">
                                             </div>
                                             <div class="col-md-3">
-                                                <input type="file" multiple>
+                                                <input type="file" capture="capture" placeholder="Attach">
                                             </div>
                                         </div>
 
