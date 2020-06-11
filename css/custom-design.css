@@ -20,3 +20,8 @@
 .groupColumnContentInputs {
 
 }
+
+.center-body {
+    margin: auto;
+    width: 100%;
+}
