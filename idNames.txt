@@ -1,0 +1,19 @@
+firstName
+middleName
+lastName
+dateOfBirth
+civilStatus
+presentCompleteAddress
+contactNumberHead
+emailHead
+altContactNumberHead
+altEmailHead
+
+province
+municipality
+vehicleToBeUsed
+pointOfOrigin
+dateOfTravel
+
+
+name=submit   = button 
