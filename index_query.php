@@ -4,8 +4,8 @@
 
 if(isset($_POST['submit'])) {
 
- $mysqli = new mysqli( $servername = "localhost",  "root", "", "nslsidb");
-
+ //$mysqli = new mysqli( $servername = "localhost",  "root", "", "nslsidb");
+ include 'dbConfig.php';
 
  $firstName =  $mysqli->real_escape_string($_POST["firstName"]);
  $middleName = $mysqli->real_escape_string( $_POST['middleName']);
@@ -22,12 +22,13 @@ if(isset($_POST['submit'])) {
  $vehicleToBeUsed =  $mysqli->real_escape_string($_POST['vehicleToBeUsed']);
  $pointOfOrigin =  $mysqli->real_escape_string($_POST['pointOfOrigin']);
  $dateOfTravel =  $mysqli->real_escape_string($_POST['dateOfTravel']);
+$dateAdded = $mysqli->real_escape_string(date('y/m/d'));
+
+$memberFName = $_POST['memberFName'];
+$memberContactNum = $_POST['memberContactNum'];
+$memberAddrs = $_POST['memberAddrs'];
 
 
-
-// Create connection
- 
-// Check connection
   if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
   } 
@@ -48,7 +49,8 @@ province,
 municipality,
 vehicleToBeUsed,
 pointOfOrigin,
-dateOfTravel
+dateOfTravel,
+dateAdded
 )
 VALUES 
 (
@@ -66,7 +68,8 @@ VALUES
 '$municipality',
 '$vehicleToBeUsed ',
 '$pointOfOrigin',
-'$dateOfTravel'
+'$dateOfTravel', 
+'$dateAdded'
 )");
 
 if($mysqli->error){
@@ -76,11 +79,39 @@ if($mysqli->error){
   header('Location:index.html');
 }
 
+$id = mysqli_insert_id($mysqli);
+
+echo $id;
+$i = 0;
+$j = 0;
+$h = 0;
+while($i < sizeof($memberFName) || $j < sizeof($memberContactNum) || $h < sizeof($memberAddrs)) 
+{
+    $mysqli->query
+        (
+        "INSERT INTO `members`
+    (
+        AP_ID,
+        `Name`
+        ,`memContactNumber`
+        ,`memAddr`
+    ) 
+    VALUES 
+    (
+        '$id',
+        '$memberFName[$i]',
+        '$memberContactNum[$j]',
+        '$memberAddrs[$h]'
+    )"
+    );
+
+    $i++;
+    $j++;
+    $h++;
 
 
+}
 $mysqli->close();
 }
-
-
 
 ?>
