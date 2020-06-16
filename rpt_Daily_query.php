@@ -54,7 +54,7 @@ if ($result->num_rows > 0) {
  $sql= "SELECT T1.Name, T1.memContactNumber, T2.pointOfOrigin, T2.municipality, T2.dateOfTravel FROM members AS T1, applicants AS T2   WHERE T1.AP_ID = T2.AP_ID ORDER BY municipality ASC, firstName ASC";
 
 $result = $mysqli->query($sql);
-$countM = 0;
+$countM = 0;`
 if ($result->num_rows > 0) {
 <<<<<<< HEAD
     // output data of each row
