@@ -1,3 +1,4 @@
+
 <?php
 
 
@@ -72,12 +73,6 @@ VALUES
 '$dateAdded'
 )");
 
-if($mysqli->error){
-  echo "error";
-}else{
-  echo "Salamat shoppe";
-  header('Location:index.html');
-}
 
 $id = mysqli_insert_id($mysqli);
 
@@ -87,6 +82,7 @@ $j = 0;
 $h = 0;
 while($i < sizeof($memberFName) || $j < sizeof($memberContactNum) || $h < sizeof($memberAddrs)) 
 {
+  if(strlen($memberFName[$i]) != 0 && strlen($memberContactNum[$i]) != 0  && strlen($memberAddrs[$i]) != 0){
     $mysqli->query
         (
         "INSERT INTO `members`
@@ -108,10 +104,11 @@ while($i < sizeof($memberFName) || $j < sizeof($memberContactNum) || $h < sizeof
     $i++;
     $j++;
     $h++;
-
+  }
 
 }
 $mysqli->close();
 }
 
+header('Location:index.html');
 ?>
