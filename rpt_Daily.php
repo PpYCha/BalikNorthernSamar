@@ -3,9 +3,10 @@
 
 <head>
     <link rel="shortcut icon" href="images/favicon.nsamarLogo.ico" />
-    <title>LSI</title>
+    <title>Reports</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="assets/img/favicon/nsamarLogo.ico">
     <!--Bootstrap css-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/custom-design.css">
@@ -112,9 +113,17 @@ function sortTable(n) {
 
 th {
   cursor: pointer;
+  word-wrap:break-word;
+    white-space: normal;
+    text-align: center;
+    vertical-align: top;
 }
 
-
+td{
+    word-wrap:break-word;
+    white-space: normal;
+    
+}
 
 </style>
 
@@ -181,7 +190,7 @@ th {
                             </table>
                             
                             <h4 id="totalNumber">Found: <?php echo $countAll ?> result(s) </h4>
-                        </div>`
+                        </div>
                         <!--End of form-->
                     </div>
                 </div>

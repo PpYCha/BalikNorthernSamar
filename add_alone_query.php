@@ -34,7 +34,7 @@ $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
   if(in_array($fileType, $allowTypes)){
       // Upload file to server
      
-      if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath . $newfilename)) {
+      if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
           // Insert image file name into database
 
           $mysqli->query("INSERT INTO applicants 
@@ -80,7 +80,10 @@ VALUES
 
 $mysqli->close();
 header('Location:index.html');
-
+echo '<script language="javascript">';
+echo 'alert("Applied successfully.")';
+echo '</script>';
+exit;
       }
       }
       }
