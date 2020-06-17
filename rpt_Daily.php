@@ -128,10 +128,9 @@ th {
                                 <thead class="black white-text">
                                     <tr>
                                         <th onclick="sortTable(0)" scope="col">Names</th>
-                                        <th onclick="sortTable(1)" scope="col">Travel Company</th>
-                                        <th onclick="sortTable(2)" scope="col">Place of Origin</th>
-                                        <th onclick="sortTable(3)" scope="col">Destination LGU</th>
-                                        <th onclick="sortTable(4)" scope="col">Travel Date</th>
+                                        <th onclick="sortTable(1)" scope="col">Place of Origin</th>
+                                        <th onclick="sortTable(2)" scope="col">Destination LGU</th>
+                                        <th onclick="sortTable(3)" scope="col">Travel Date</th>
                                         <th scope="col">Contact No.</t>
                                     </tr>
                                 </thead>

@@ -43,7 +43,7 @@
 			$countL++;
 			echo '<tr>';
 			echo "<td> <a href=''>" . $row["firstName"] . " " . $row["middleName"] . " " . $row["lastName"] . " " .  "</a></td>";
-			echo "<td> </td>";
+
 			echo "<td>" . $row["pointOfOrigin"]  .  "</td>";
 			echo "<td>" . $row["municipality"]  .  "</td>";
 			echo "<td>" . $row["dateOfTravel"]  .  "</td>";
@@ -63,7 +63,7 @@
 			$countM++;
 			echo "<tr>";
 			echo "<td> <a href=''>" . $row["Name"]  . "</a></td>";
-			echo "<td> </td>";
+
 			echo "<td>" . $row["pointOfOrigin"]  .  "</td>";
 			echo "<td>" . $row["municipality"]  .  "</td>";
 			echo "<td>" . $row["dateOfTravel"]  .  "</td>";
@@ -71,56 +71,8 @@
 			echo '</tr>';
 		}
 
-		while ($row = $result->fetch_assoc()) {
-	?>
 
-
-    <div class="limiter">
-        <div class="container-table100">
-            <div class="wrap-table100">
-                <div class="table">
-
-                    <div class="row header">
-                        <div class="cell">
-                            Full Name
-                        </div>
-                        <div class="cell">
-                            Travel Company
-                        </div>
-                        <div class="cell">
-                            Place of Origin
-                        </div>
-                        <div class="cell">
-                            Destination LGU
-                        </div>
-                        <div class="cell">
-                            Travel Date
-                        </div>
-                        <div class="cell">
-                            Contact No.
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="cell" data-title="Full Name">
-                            <?php echo $row["firstName"] . " " . $row["middleName"] . " " . $row["lastName"]; ?>
-                        </div>
-                        <div class="cell" data-title="pointOfOrigin">
-                            <?php echo $row["pointOfOrigin"]; ?>
-                        </div>
-                        <div class="cell" data-title="municipality">
-                            <?php echo $row["municipality"]; ?>
-                        </div>
-                        <div class="cell" data-title="dateOfTravel">
-                            <?php echo $row["dateOfTravel"]; ?>
-                        </div>
-                        <div class="cell" data-title="contactNumberHead">
-                            <?php echo $row["contactNumberHead"]; ?>
-                        </div>
-                    </div>
-                    ?>
-                    <?php
-				}
+               
 			} else {
 				echo "0 results";
 			}
