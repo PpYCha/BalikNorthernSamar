@@ -79,10 +79,7 @@ VALUES
 )");
 
 $mysqli->close();
-header('Location:index.html');
-echo '<script language="javascript">';
-echo 'alert("Applied successfully.")';
-echo '</script>';
+header('success_page.html');
 exit;
       }
       }

@@ -109,6 +109,24 @@ function sortTable(n) {
   {
     display: none;
   }
+
+  td{
+
+
+    text-align: center;
+
+    
+  }
+  a {
+color: black;
+text-decoration: none;
+
+  } 
+
+  a[href]:after {
+        content: none !important;
+    }
+  
 }
 
 th {
@@ -122,7 +140,7 @@ th {
 td{
     word-wrap:break-word;
     white-space: normal;
-    
+
 }
 
 </style>
