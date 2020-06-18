@@ -113,7 +113,7 @@ VALUES
                 }
             }
             $mysqli->close();
-            header('Location:index.html');
+            header('Location:success_page.html');
         }
     }
 }

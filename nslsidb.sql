@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2020 at 11:48 AM
+-- Generation Time: Jun 18, 2020 at 08:26 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.31
 
@@ -43,34 +43,20 @@ CREATE TABLE `applicants` (
   `municipality` varchar(100) NOT NULL,
   `vehicleToBeUsed` varchar(100) NOT NULL,
   `pointOfOrigin` varchar(100) NOT NULL,
-  `dateOfTravel` date NOT NULL
+  `dateOfTravel` date NOT NULL,
+  `dateAdded` date NOT NULL,
+  `travelpass_path` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `applicants`
 --
 
-INSERT INTO `applicants` (`AP_ID`, `firstName`, `middleName`, `lastName`, `dateOfBirth`, `civilStatus`, `presentCompleteAddress`, `contactNumberHead`, `emailHead`, `altContactNumberHead`, `altEmailHead`, `province`, `municipality`, `vehicleToBeUsed`, `pointOfOrigin`, `dateOfTravel`) VALUES
-(1, 'Diasan', 'Abria', 'Diaz; ', '0000-00-00', 'Single ', '138, Balite St, Brgy. Acacia, Catarman Northern Samar ', '09100147388 ', 'example@gmail.com ', ' ', ' ', 'Northern Samar ', 'Catarman', 'Public Utility Vehicle ', 'pointOfOrigin', '0000-00-00'),
-(2, 'Diasan', 'Abria', 'Diaz; ', '0000-00-00', 'Single ', '138, Balite St, Brgy. Acacia, Catarman Northern Samar ', '09100147388 ', 'example@gmail.com ', ' ', ' ', 'Northern Samar ', 'Catarman', 'Public Utility Vehicle ', 'pointOfOrigin', '0000-00-00'),
-(3, 'Diasan', 'Abria', 'Diaz; ', '0000-00-00', 'Single ', '138, Balite St, Brgy. Acacia, Catarman Northern Samar ', '09100147388 ', 'example@gmail.com ', ' ', ' ', 'Northern Samar ', 'Catarman', 'Public Utility Vehicle ', 'pointOfOrigin', '0000-00-00'),
-(4, '', 'sadsa', 'asdasd ', '2020-06-24', 'Separated ', 'asdadsada ', ' ', 'asda ', 'asdad ', 'sadsa ', ' ', 'Rosario', 'Private Utilit Vehicle ', 'pointOfOrigin', '2020-06-29'),
-(5, '', '', ' ', '0000-00-00', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '', ' ', 'pointOfOrigin', '0000-00-00'),
-(6, '', '', ' ', '0000-00-00', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '', ' ', 'pointOfOrigin', '0000-00-00'),
-(7, '', '1231', '123 ', '2020-06-04', 'Single ', '12313 ', '123 ', '123 ', '1231 ', '123 ', ' ', 'San Antonio', 'Public Utility Vehicle ', 'pointOfOrigin', '2020-07-01'),
-(8, '', '', ' ', '0000-00-00', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '', ' ', 'pointOfOrigin', '0000-00-00'),
-(9, 'ffffff', 'mmmm', 'llll ', '2020-06-12', 'Married ', 'adsada ', 'adssa ', 'asdsad ', 'sadad ', 'asdsad ', ' ', 'San Antonio', 'Private Utilit Vehicle ', 'pointOfOrigin', '2020-06-24'),
-(10, '123213', '12313', '213312 ', '2020-06-19', 'Separated ', '123213 ', '1231 ', '1231 ', '1231 ', '123 ', ' ', 'Catarman', 'Private Utilit Vehicle ', 'pointOfOrigin', '2020-06-17'),
-(11, '', '', ' ', '0000-00-00', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '', ' ', 'pointOfOrigin', '0000-00-00'),
-(12, 'asad', 'adsada', 'adsa ', '2020-06-17', 'Married ', 'asdsad ', 'asdasd ', 'adsa ', 'asda ', 'asda ', 'Calbayog ', 'Catubig', 'Private Utilit Vehicle ', 'pointOfOrigin', '2020-06-25'),
-(13, '123213', '12313', '213312 ', '2020-06-19', 'Separated ', '123213 ', '1231 ', '1231 ', '1231 ', '123 ', 'Northern Samar ', 'Catarman', 'Private Utilit Vehicle ', 'pointOfOrigin', '2020-06-17'),
-(14, '', '', ' ', '0000-00-00', ' ', ' ', ' ', ' ', ' ', ' ', 'Northern Samar ', '', ' ', 'pointOfOrigin', '0000-00-00'),
-(15, '', '', ' ', '0000-00-00', ' ', ' ', ' ', ' ', ' ', ' ', 'Northern Samar ', '', ' ', '', '0000-00-00'),
-(16, 'asdadad;;;;', '\'\'\'\'', 'adsada ', '2020-07-02', 'Married ', '231231asds ', 'asda ', 'asdsaadssa ', 'sadaasdsa ', '\'\' ', 'Northern Samar ', 'Pambujan', 'Public Utility Vehicle ', 'adssaa', '2020-06-17'),
-(17, 'asdadad;;;;', '\'\'\'\'', 'adsada ', '2020-07-02', 'Married ', '231231asds ', 'asda ', 'asdsaadssa ', 'sadaasdsa ', '\'\' ', 'Northern Samar ', 'Pambujan', 'Public Utility Vehicle ', 'adssaa', '2020-06-17'),
-(18, 'asdsasad', 'asdsad', 'asdsad ', '2020-06-25', 'Separated ', 'asdsadsa ', 'asda ', 'asdsa ', 'asdas ', 'asdda ', 'Northern Samar ', 'Palapag', 'Public Utility Vehicle ', 'asdsadsad', '2020-06-23'),
-(19, 'asdsa', 'asdasda', 'asdsa ', '2020-06-04', 'Widower ', 'aadasd ', 'adsa ', 'adas ', 'asdsa ', 'aasdsa ', 'Northern Samar ', 'Mondragon', 'Private Utilit Vehicle ', 'asdsa', '2020-06-03'),
-(20, 'asdsa', 'asda', 'adsa ', '2020-06-10', 'Separated ', 'asdsadsa ', 'asdsad ', 'asdsad ', 'asdasd ', 'adsa ', 'Northern Samar ', 'Pambujan', 'Private Utilit Vehicle ', 'asdsa', '2020-06-23');
+INSERT INTO `applicants` (`AP_ID`, `firstName`, `middleName`, `lastName`, `dateOfBirth`, `civilStatus`, `presentCompleteAddress`, `contactNumberHead`, `emailHead`, `altContactNumberHead`, `altEmailHead`, `province`, `municipality`, `vehicleToBeUsed`, `pointOfOrigin`, `dateOfTravel`, `dateAdded`, `travelpass_path`) VALUES
+(40, 'Thurman ', '', 'Grimes ', '2020-06-24', 'Married ', '90 Jones Ridge, Poblacion, Talisay 1001 Bataan ', '292-634-730 ', 'wisoky.coty@hotmail.com ', ' 339-08-5750 ', ' ', 'Northern Samar ', 'Pambujan', 'Public Utility Vehicle ', '90 Jones Ridge, Poblacion, Talisay 1001 Bataan', '2020-06-22', '2020-06-18', '1592460531.jpg'),
+(41, 'Amelie ', '', 'Kertzmann ', '2020-05-11', 'Single ', '24/05 Hagenes Mall, Poblacion, Iligan 9951 Bulacan ', '463-256-805 ', 'nikolaus.emerald@conroy.com ', '751-54-6377 ', ' ', 'Northern Samar ', 'Pambujan', 'Private Utiliy Vehicle ', '24/05 Hagenes Mall, Poblacion, Iligan 9951 Bulacan', '2020-06-23', '2020-06-18', '1592460679.jpg'),
+(42, 'Lemuel ', '', 'Ebert ', '2021-02-03', 'Single ', '78/43 Ullrich Tunnel, Labo 3703 Bukidnon ', '412-679-419 ', 'jordi.wiza@hill.com ', ' ', ' ', 'Northern Samar ', 'San Roque', 'Public Utility Vehicle ', '78/43 Ullrich Tunnel, Labo 3703 Bukidnon', '2020-06-25', '2020-06-18', '1592460786.png'),
+(43, 'Dr. Cristina', '', 'Kassulke IV ', '2020-06-16', 'Single ', '51/77 Olson Junction Suite 399, Poblacion, Butuan 7359 Biliran ', '471-303-107 ', 'rosina71@gmail.com ', ' ', ' ', 'Northern Samar ', 'Silvino Lobos', 'Public Utility Vehicle ', '51/77 Olson Junction Suite 399, Poblacion, Butuan 7359 Biliran', '2020-06-28', '2020-06-18', '1592461003.png');
 
 -- --------------------------------------------------------
 
@@ -81,8 +67,20 @@ INSERT INTO `applicants` (`AP_ID`, `firstName`, `middleName`, `lastName`, `dateO
 CREATE TABLE `members` (
   `m_ID` int(100) NOT NULL,
   `Name` varchar(100) NOT NULL,
-  `memContactNumber` varchar(100) NOT NULL
+  `memContactNumber` varchar(100) NOT NULL,
+  `memAddr` varchar(100) NOT NULL,
+  `AP_ID` int(11) NOT NULL,
+  `travelpassMem_path` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `members`
+--
+
+INSERT INTO `members` (`m_ID`, `Name`, `memContactNumber`, `memAddr`, `AP_ID`, `travelpassMem_path`) VALUES
+(70, 'Dr. Makenzie Rogahn', '269-883-007', 'Baybay, Catmarn', 43, 0),
+(71, 'Kavon Kulas', '764-349-641', 'Talisay, Catmarn', 43, 0),
+(72, 'Gretchen Jacobson V', '916-018-165', 'Ipil-ipil, Catmarn', 43, 0);
 
 --
 -- Indexes for dumped tables
@@ -108,13 +106,13 @@ ALTER TABLE `members`
 -- AUTO_INCREMENT for table `applicants`
 --
 ALTER TABLE `applicants`
-  MODIFY `AP_ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `AP_ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `m_ID` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `m_ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

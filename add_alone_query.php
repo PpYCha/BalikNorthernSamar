@@ -79,7 +79,8 @@ VALUES
 )");
 
 $mysqli->close();
-header('success_page.html');
+header('Location:success_page.html');
+
 exit;
       }
       }

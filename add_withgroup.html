@@ -55,11 +55,6 @@
         });
     </script>
 
-    <script>
-        $(document).ready(function () {
-            $("#myModal").modal('show');
-        });
-    </script>
 
 </head>
 
@@ -87,7 +82,7 @@
           <div class="container d-flex justify-content-between">
             <a href="index.html" class="navbar-brand d-flex align-items-center">
              <img src="assets/img/favicon/icons8_connectivity_and_help_30px.png" alt="" style="width:30px;height:30px;" >
-              <strong>NS-LSI</strong>
+              <strong>NS-RRR</strong>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -392,4 +387,14 @@
 
 </body>
 
+<script>
+    $('input:radio[name="my_agg"]').change(function() {
+        if ($(this).val() == 'Yes'){
+         document.getElementById("form_submit").disabled = false;
+       }
+       if ($(this).val() == 'No'){
+        document.getElementById("form_submit").disabled = true;
+      }
+    });  
+    </script>
 </html>

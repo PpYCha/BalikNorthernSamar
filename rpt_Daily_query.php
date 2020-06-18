@@ -62,7 +62,7 @@
 
                
 			} else {
-				echo "0 results";
+				
 			}
 		
 	

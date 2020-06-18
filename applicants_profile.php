@@ -105,7 +105,7 @@ while ($row = mysqli_fetch_array($result)) {
                                 <div class="sectionContent">
                                     <?php
                                          $filename = $row['travelpass_path'];
-                                         echo "<img src='assets/img/uploaded_travelPass/$filename'";
+                                         echo "<img style='width:100%;height:100%;' src='assets/img/uploaded_travelPass/$filename'";
                                     ?>
                                 </div>
                                 <div class="clear"></div>
@@ -194,7 +194,7 @@ while ($row = mysqli_fetch_array($result)) {
                                         
                                                        
                                                     } else {
-                                                        echo "0 results";
+                                                       
                                                     }
                                                 
                                             
