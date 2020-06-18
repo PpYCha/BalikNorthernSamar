@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/custom-design.css">
     <!-- Latest compiled JavaScript -->
-    <script src="assets/js/jquery-3.1.1.min.js" type="text/javascript"></script>
     <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery-3.1.1.min.js" type="text/javascript"></script>
     <script src="assets/js/custom.js" type="text/javascript"></script>
 </head>
 

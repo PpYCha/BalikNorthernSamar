@@ -25,7 +25,8 @@
 			$countL++;
 			echo '<tr>';
 			echo "<td style='display:none;'>" . $row["AP_ID"]  .  "</td>";
-			echo "<td> <a href='test.php'> " . $row["firstName"] . " " . $row["middleName"] . " " . $row["lastName"] . " " .  "</a></td>";
+			$ID = $row['AP_ID'];
+			echo "<td> <a href='applicants_profile.php?id=$ID'> " . $row["firstName"] . " " . $row["middleName"] . " " . $row["lastName"] . " " .  "</a></td>";
 
 			echo "<td style='word-wrap: break-word;min-width: 160px;max-width: 160px;'>" . $row["pointOfOrigin"]  .  "</td>";
 			echo "<td>" . $row["municipality"]  .  "</td>";
@@ -44,14 +45,18 @@
 		// output data of each row
 		while ($row = $result->fetch_assoc()) {
 			$countM++;
-			echo "<tr>";
+			echo "<tr class='memberName'>";
 			echo "<td style='display:none;'>" . $row["AP_ID"]  .  "</td>";
-			echo "<td> <a href='applicants_profile.php'>" . $row["Name"]  . "</a></td>";
+			$ID = $row['AP_ID'];
+			echo "<td> <a href='applicants_profile.php?id=$ID'>" . $row["Name"]  . "</a></td>";
 			echo "<td>" . $row["pointOfOrigin"]  .  "</td>";
 			echo "<td>" . $row["municipality"]  .  "</td>";
 			echo "<td>" . $row["dateOfTravel"]  .  "</td>";
 			echo "<td>" . $row["memContactNumber"]  .  "</td>";
 			echo '</tr>';
+
+
+	
 		}
 
 
