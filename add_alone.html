@@ -16,39 +16,62 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/custom.js"></script>
 
+
+    <script> 
+        $(function(){
+          $("#header").load("header.html"); 
+          $("#footer").load("footer.html"); 
+        });
+        </script> 
+
+
+        <script type='text/javascript'>
+function preview_image(event) 
+{
+ var reader = new FileReader();
+ reader.onload = function()
+ {
+  var output = document.getElementById('output_image');
+  output.src = reader.result;
+ }
+ reader.readAsDataURL(event.target.files[0]);
+}
+</script>
+
+<style>
+    #wrapper
+{
+ text-align:center;
+ margin:0 auto;
+ padding:0px;
+ width:995px;
+}
+#output_image
+{
+   
+ max-width:250px;
+ max-height: 250px;
+
+}
+
+.image-upload > input
+{
+    display: none;
+}
+
+.image-upload img
+{
+   
+    cursor: pointer;
+}
+
+</style>
+
 </head>
 
 <body>
-    <header>
-        <div class="collapse bg-dark" id="navbarHeader">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-8 col-md-7 py-4">
-                <h4 class="text-white">About</h4>
-                <p class="text-muted">This page is created by Provincial Gorvernment of Northern Samar by Management Information System Office. </p>
-              </div>
-              <div class="col-sm-4 offset-md-1 py-4">
-                <h4 class="text-white">Contact</h4>
-                <ul class="list-unstyled">
-                  <li><a href="#" class="text-white">Follow on Twitter</a></li>
-                  <li><a href="#" class="text-white">Like on Facebook</a></li>
-                  <li><a href="#" class="text-white">Email me</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="navbar navbar-dark bg-dark box-shadow">
-          <div class="container d-flex justify-content-between">
-            <a href="index.html" class="navbar-brand d-flex align-items-center">
-             <img src="assets/img/favicon/icons8_connectivity_and_help_30px.png" alt="" style="width:30px;height:30px;" >
-              <strong>NS-RRS</strong>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          </div>
-        </div>
+    <header id="header">
+       
       </header>
     <main>
         <div class="section section-md">
@@ -59,25 +82,34 @@
                         <form  autocomplete="off" method="POST" action="add_alone_query.php" enctype="multipart/form-data" >
                             <!--Personal Details-->
                             <div class="card shadow-soft border p-2 mb-2" style="margin-top: 30px">
+                             
                                 <h5 class="en"><strong>A: Local Stranded Individual</strong></h5>
                                 <div class="col-md-12 groupHeader">
                                     <p><strong>PERSONAL DETAILS</strong></p>
                                 </div>
                                 <div class="row mb-3 groupContent">
+                                    <div class="col-md-4 image-upload">
+                                        <label for="file-input">
+                                            <img id="iconCam" src="assets/img/favicon/icons8_camera_30px.png"/>
+                                        </label>
+                                        <input type="file" id="file-input" name="file2" accept="image/*" onchange="preview_image(event)" required>
+                         
+                                        <img src="assets/img/favicon/avatar.png" alt="Avatar" class="img-fluid"  id="output_image" >
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4"></div>
                                     <div class="col-md-4">
                                         <label style="color: #e85a4f;" class="mr-1">*</label><label
                                             style="color: #66799e;">Firstname</label>
                                         <input class="form-control form-control-sm mb-2" id="firstName" name="firstName"
                                             value="" type="text" required>
                                     </div>
-
-
+                                 
                                     <div class="col-md-4">
                                         <label style="color: #66799e;">Middle name</label>
                                         <input class="form-control form-control-sm mb-2" id="middleName"
                                             name="middleName" value="" type="text">
                                     </div>
-
 
                                     <div class="col-md-4">
                                         <label style="color: #e85a4f;" class="mr-1">*</label><label
@@ -96,7 +128,6 @@
                                             maxlength="10" required>
                                     </div>
 
-
                                     <div class="col-md-4">
                                         <label style="color: rgb(232, 90, 79);" class="en mr-1">*</label><label
                                             class="en" style="color: rgb(102, 121, 158);">Civil Status</label>
@@ -111,6 +142,7 @@
                                             <option>With Common-Law Partner/ Cohabitating</option>
                                         </select>
                                     </div>
+
                                     <div class="col-md-4">
                                         <label style="color: rgb(232, 90, 79);" class="en mr-1">*</label><label
                                             class="en" style="color: rgb(102, 121, 158);">Present Complete
@@ -119,6 +151,7 @@
                                             name="presentCompleteAddress" value="" id="presentCompleteAddress"
                                             type="text" placeholder="House#, St., Brgy, City/Municipality" required>
                                     </div>
+
                                 </div>
 
                                 <div class="col-md-12 groupHeader">
@@ -132,7 +165,7 @@
                                             id="contactNumberHead" value="" type="text" required=""
                                             placeholder="09XXXXXXXXX" maxlength="13">
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <label style="color: #66799e;">Email (Optional): </label>
                                         <input class="form-control form-control-sm mb-2" name="emailHead" id="emailHead"
                                             value="" type="text" placeholder="example@gmail">
@@ -143,13 +176,16 @@
                                             id="altContactNumberHead" value="" type="text" placeholder="09XXXXXXXXX"
                                             maxlength="13">
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <label style="color: #66799e;">Alt Email (Optional): </label>
                                         <input class="form-control form-control-sm mb-2" name="altEmailHead"
                                             id="altEmailHead" value="" type="text" placeholder="example@gmail">
-                                    </div>
-                                </div>
+                                    </div>                                 
+                               
                             </div>
+                            </div>
+                         
+
                             <!--Departure-->
                             <div class="card shadow-soft border p-2 mb-2">
                                 <h5 class="en"><strong>B: Travel Details</strong></h5>
@@ -178,7 +214,7 @@
                                         <p class="text-danger">
                                             <label style="color: #e85a4f;" class="mr-1">*</label>
                                             <label style="color: #66799e;">Attach a photo of your Travel Pass</label><br>
-                                            <input type="file" name="file" capture="camera" accept="image/x-png,image/jpeg,image/jpg">
+                                            <input type="file" name="file" capture="camera" accept="image/x-png,image/jpeg,image/jpg" required>
                                         </p>
                                     </div>
 

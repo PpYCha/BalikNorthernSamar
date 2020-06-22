@@ -23,6 +23,21 @@
 });
 </script> 
 
+<style>
+.zoom {
+  padding: 50px;
+
+  transition: transform .2s; /* Animation */
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+</style>
+
 </head>
 
 <!-- START of PHP CODE -->
@@ -81,7 +96,7 @@ while ($row = mysqli_fetch_array($result)) {
                                 <div class="sectionContent">
                                     <?php
                                          $filename = $row['travelpass_path'];
-                                         echo "<img style='width:100%;height:100%;' src='assets/img/uploaded_travelPass/$filename'";
+                                         echo "<img class='zoom' style='width:300px;height:300px;' src='assets/img/uploaded_travelPass/$filename'";
                                     ?>
                                 </div>
                                 <div class="clear"></div>
