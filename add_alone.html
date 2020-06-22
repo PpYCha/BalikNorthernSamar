@@ -21,9 +21,9 @@
         $(function(){
           $("#header").load("header.html"); 
           $("#footer").load("footer.html"); 
+          document.getElementById("form_submit").disabled = true;
         });
         </script> 
-
 
         <script type='text/javascript'>
 function preview_image(event) 
@@ -92,7 +92,7 @@ function preview_image(event)
                                         <label for="file-input">
                                             <img id="iconCam" src="assets/img/favicon/icons8_camera_30px.png"/>
                                         </label>
-                                        <input type="file" id="file-input" name="file2" accept="image/*" onchange="preview_image(event)" required>
+                                        <input  type="file" id="file-input" name="file2" accept="image/*" onchange="preview_image(event)" required>
                          
                                         <img src="assets/img/favicon/avatar.png" alt="Avatar" class="img-fluid"  id="output_image" >
                                     </div>
