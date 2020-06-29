@@ -31,11 +31,12 @@
 
                 // Create clone
                 var newel = $('.groupColumnContentInputs:last').clone(true);
+             
                 //alert($cntr);
                 // Set id of new element
                 //$(newel).find('input["type=text]:nth-child(1)').attr("placeholder", "Name " + index);
                 $(newel).find('p').replaceWith("<p>MEMBER " + $cntr + "</p>");
-
+                $(newel).find('p1').replaceWith("<p1>Attach MEMBER " + $cntr + " photo" + "</p1>");
                 // Set value
         $(newel).find('input[type=text]').val('');
          $(newel).find('input[type=file]').val('');
@@ -293,18 +294,19 @@
                                 <div class="groupColumnContent ">
 
                                     <div class="groupColumnContentInputs">
-                                        <div>
+                                        
 
                                             <p>MEMBER 1</p>
-                                        </div>
+                                            <p1>Attach member 1 photo</p1>
                                         <div class="row mb-1">
                                             <div class="col-md-4 ">  
-                                                <label style="color: #e85a4f;" class="mr-1">*</label><label
-                                                style="color: #66799e;">Attach member photo</label>     
-                                            <input type="file" name="memberPic[]" capture="camera" accept="image/x-png,image/jpeg,image/jpg" required>                                                       
+                                                 
+                                                                                                 
                                             </div>
                                    
-                                            <div class="col-md-4"></div>
+                                            <div class="col-md-4" style="width: 250px; height: 250px; color: #E85A4F; fill: aqua;" > 
+                                                <input type="file" name="memberPic[]" capture="camera" accept="image/x-png,image/jpeg,image/jpg" required>
+                                             </div>
                                             <div class="col-md-4"></div>
                                             <div class="col-md-4 ">
                                                 <input class="form-control form-control-sm  mb-1 member"
