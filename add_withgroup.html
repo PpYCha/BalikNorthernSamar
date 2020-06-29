@@ -17,9 +17,7 @@
 
     <script type="text/javascript">
 
-
         $(document).ready(function () {
-
 
             $cntr = 1;
             $('#add_more').click(function () {
@@ -40,6 +38,7 @@
 
                 // Set value
         $(newel).find('input[type=text]').val('');
+         $(newel).find('input[type=file]').val('');
                 // Insert element
                 $(newel).insertAfter(".groupColumnContentInputs:last");
             });
@@ -56,55 +55,15 @@
     </script>
 
 
-<script type='text/javascript'>
-    function preview_image(event) 
-    {
-     var reader = new FileReader();
-     reader.onload = function()
-     {
-      var output = document.getElementById('output_image');
-      output.src = reader.result;
-     }
-     reader.readAsDataURL(event.target.files[0]);
-    }
-    </script>
 
 <script> 
     $(function(){
       $("#header").load("header.html"); 
       $("#footer").load("footer.html"); 
+      document.getElementById("form_submit").disabled = true;
     });
     </script> 
 
-
-<style>
-    #wrapper
-{
- text-align:center;
- margin:0 auto;
- padding:0px;
- width:995px;
-}
-#output_image
-{
-   
- max-width:250px;
- max-height: 250px;
-
-}
-
-.image-upload > input
-{
-    display: none;
-}
-
-.image-upload img
-{
-   
-    cursor: pointer;
-}
-
-</style>
 </head>
 
 <body>
@@ -126,15 +85,24 @@
                                 <div class="col-md-12 groupHeader">
                                     <p><strong>PERSONAL DETAILS</strong></p>
                                 </div>
-                                <div class="col-md-4 image-upload">
-                                    <label for="file-input">
-                                        <img id="iconCam" src="assets/img/favicon/icons8_camera_30px.png"/>
-                                    </label>
-                                    <input type="file" id="file-input" name="file2" accept="image/*" onchange="preview_image(event)">
-                     
-                                    <img src="assets/img/favicon/avatar.png" alt="Avatar" class="img-fluid"  id="output_image">
-                                </div>
+                                
                                 <div class="row mb-3 groupContent">
+
+                                    <div class="col-md-4">
+                                        <label style="color: #e85a4f;" class="mr-1">*</label><label
+                                            style="color: #66799e;">Attach your photo</label>
+                                        <input type="file" name="groupLeaderPic" capture="camera" accept="image/x-png,image/jpeg,image/jpg" required>  
+                                    
+                                    </div>
+
+                                    <div class="col-md-4">
+                            
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        
+                                    </div>
+
                                     <div class="col-md-4">
                                         <label style="color: #e85a4f;" class="mr-1">*</label><label
                                             style="color: #66799e;">Firstname</label>
@@ -250,7 +218,8 @@
                                         <p class="text-danger">
                                             <label style="color: #e85a4f;" class="mr-1">*</label>
                                             <label style="color: #66799e;">Attach a photo of your group Travel Pass</label><br>
-                                            <input type="file" name="file" capture="camera" accept="image/x-png,image/jpeg,image/jpg">
+                                            <input type="file" name="groupTravelPass" capture="camera" accept="image/x-png,image/jpeg,image/jpg">
+                                            
                                         </p>
                                     </div>
 
@@ -324,17 +293,17 @@
                                 <div class="groupColumnContent ">
 
                                     <div class="groupColumnContentInputs">
-                                        
-                                        <p>MEMBER 1</p>
+                                        <div>
+
+                                            <p>MEMBER 1</p>
+                                        </div>
                                         <div class="row mb-1">
-                                            <div class="col-md-4 image-upload">
-                                                <label for="file-input">
-                                                    <img id="iconCam" src="assets/img/favicon/icons8_camera_30px.png"/>
-                                                </label>
-                                                <input type="file" id="file-input" name="memberFile[]" accept="image/*" onchange="preview_image(event)">
-                                 
-                                                <img src="assets/img/favicon/avatar.png" alt="Avatar" class="img-fluid"  id="output_image">
+                                            <div class="col-md-4 ">  
+                                                <label style="color: #e85a4f;" class="mr-1">*</label><label
+                                                style="color: #66799e;">Attach member photo</label>     
+                                            <input type="file" name="memberPic[]" capture="camera" accept="image/x-png,image/jpeg,image/jpg" required>                                                       
                                             </div>
+                                   
                                             <div class="col-md-4"></div>
                                             <div class="col-md-4"></div>
                                             <div class="col-md-4 ">

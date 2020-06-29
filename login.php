@@ -17,7 +17,7 @@
 <body>
 
   <div class="wrap">
-      <form  name="myForm" action="rpt_Daily.php" onsubmit="return validateForm()" method="post" autocomplete="off">
+      <form  name="myForm" action="xbDciU66Y0QJ9by9MxKv.php" onsubmit="return validateForm()" method="post" autocomplete="off">
           <div class="avatar">
               <img src="assets/img/favicon/nsamarLogo.ico">
             </div>
