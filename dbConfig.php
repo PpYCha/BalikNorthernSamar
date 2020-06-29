@@ -4,7 +4,7 @@ server with default setting (user 'root' with no password) */
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
-define('DB_NAME', 'nslsidb');
+define('DB_NAME', 'nsrrrdb');
 
 // define('DB_SERVER', 'localhost');
 // define('DB_USERNAME', 'id13939868_databaseine');

@@ -13,7 +13,7 @@
     <?php
 
 	//include 'dbConfig.php';
-	$mysqli = new mysqli($servername = "localhost",  "root", "", "nslsidb");
+	$mysqli = new mysqli($servername = "localhost",  "root", "", "nsrrrdb");
 	//$mysqli->query ("SELECT firstName, middleName, lastName, pointOfOrigin, municipality, dateOfTravel, contactNumberHead FROM applicants ORDER BY municipality ASC, firstName ASC");
 	$sql = "SELECT AP_ID,firstName, middleName, lastName, pointOfOrigin, municipality, dateOfTravel, contactNumberHead FROM applicants ORDER BY municipality ASC, firstName ASC";
 
