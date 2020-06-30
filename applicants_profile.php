@@ -1,3 +1,19 @@
+<?php
+// You'd put this code at the top of any "protected" page you create
+
+// Always start this first
+session_start();
+
+if ( isset( $_SESSION['id'] ) ) {
+    // Grab user data from the database using the user_id
+    // Let them access the "logged in only" pages
+} else {
+    // Redirect them to the login page
+    session_destroy();
+    header("Location:login.php");
+}
+?>
+
 <!doctype html>
 <html lang="en">
 <!-- Aplicants profile -->
@@ -23,6 +39,15 @@
 });
 </script> 
 
+<script>
+$(document).ready(function()
+{
+    $(".backup_picture").on("error", function(){
+        $(this).attr('src', 'assets/img/favicon/avatar.png');
+    });
+});
+</script>
+
 <style>
 .zoom {
   padding: 50px;
@@ -43,7 +68,7 @@
 <!-- START of PHP CODE -->
 <?php 
 
-
+ 
 include 'dbConfig.php';
 $AP_ID = $_GET['id'];
 $sql = "SELECT 
@@ -66,7 +91,9 @@ dateOfTravel,
 dateAdded,
 travelpass_path,
 profilePic_path
-FROM applicants WHERE AP_ID ='". $AP_ID . "'" ;
+FROM applicants WHERE AP_ID ='". $AP_ID . "'" ; 
+
+
 if($result = mysqli_query($mysqli, $sql)){
 if (mysqli_num_rows($result) > 0) {
 while ($row = mysqli_fetch_array($result)) {
@@ -97,7 +124,7 @@ while ($row = mysqli_fetch_array($result)) {
                                 <div class="sectionContent">
                                     <?php
                                          $filename = $row['travelpass_path'];
-                                         echo "<img class='zoom' style='width:300px;height:300px;' src='assets/img/uploaded_travelPass/$filename'";
+                                         echo "<img alt='Reload to load picture' class='zoom backup_picture' style='width:300px;height:300px;' src='assets/img/uploaded_travelPass/$filename'";
                                     ?>
                                 </div>
                                 <div class="clear"></div>
@@ -115,7 +142,7 @@ while ($row = mysqli_fetch_array($result)) {
                                     </h6>
                                    <h6> <?php
                                          $filename = $row['profilePic_path'];
-                                         echo "<img class='zoom' style='width:300px;height:300px;' src='assets/img/uploaded_picRegistrant/$filename'";
+                                         echo "<img alt='Reload to load picture' class='zoom backup_picture' style='width:300px;height:300px;' src='assets/img/uploaded_picRegistrant/$filename'";
                                     ?></h6>
                                     <h6>Date of Birth: <?php echo $row['dateOfBirth']; ?></h6>
                                     <h6>Cevil Status: <?php echo $row['civilStatus']; ?></h6>
@@ -187,7 +214,7 @@ while ($row = mysqli_fetch_array($result)) {
                                                     echo "<td>" . $row["memContactNumber"]  . "</td>";
                                                     echo "<td>" . $row["memAddr"]  . "</</td>";
                                                     $filename = $row['memProfilePic_path'];
-                                                    echo "<td>" . "<img style='width:250px;height:250px;' src='assets/img/uploaded_picRegistrant/$filename'";
+                                                    echo "<td>" . "<img alt='Reload to load picture' class='backup_picture' style='width:250px;height:250px;' src='assets/img/uploaded_picRegistrant/$filename'";
                                                    
                                                   
                                                

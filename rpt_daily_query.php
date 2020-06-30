@@ -1,3 +1,19 @@
+<?php
+// You'd put this code at the top of any "protected" page you create
+
+// Always start this first
+
+
+if ( isset( $_SESSION['id'] ) ) {
+    // Grab user data from the database using the user_id
+    // Let them access the "logged in only" pages
+} else {
+    // Redirect them to the login page
+  
+    header("Location:login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <!-- rpt daily query  -->
@@ -13,7 +29,8 @@
     <?php
 
 	//include 'dbConfig.php';
-	$mysqli = new mysqli($servername = "localhost",  "root", "", "nsrrrdb");
+	// $mysqli = new mysqli($servername = "localhost",  "root", "", "nsrrrdb");
+	$mysqli = new mysqli($servername = "localhost",  "id13939868_database_ine", "xf\$GXL+j}>4z0<9o", "id13939868_nsrrrdb");
 	//$mysqli->query ("SELECT firstName, middleName, lastName, pointOfOrigin, municipality, dateOfTravel, contactNumberHead FROM applicants ORDER BY municipality ASC, firstName ASC");
 	$sql = "SELECT AP_ID,firstName, middleName, lastName, pointOfOrigin, municipality, dateOfTravel, contactNumberHead FROM applicants ORDER BY municipality ASC, firstName ASC";
 
@@ -26,7 +43,7 @@
 			echo '<tr>';
 			echo "<td style='display:none;'>" . $row["AP_ID"]  .  "</td>";
 			$ID = $row['AP_ID'];
-			echo "<td> <a href='3dggKj5ZVAwHsTcxsX6z.php?id=$ID'> " . $row["firstName"] . " " . $row["middleName"] . " " . $row["lastName"] . " " .  "</a></td>";
+			echo "<td> <a href='applicants_profile.php?id=$ID'> " . $row["firstName"] . " " . $row["middleName"] . " " . $row["lastName"] . " " .  "</a></td>";
 
 			echo "<td style='word-wrap: break-word;min-width: 160px;max-width: 160px;'>" . $row["pointOfOrigin"]  .  "</td>";
 			echo "<td>" . $row["municipality"]  .  "</td>";
@@ -48,7 +65,7 @@
 			echo "<tr class='memberName'>";
 			echo "<td style='display:none;'>" . $row["AP_ID"]  .  "</td>";
 			$ID = $row['AP_ID'];
-			echo "<td> <a href='3dggKj5ZVAwHsTcxsX6z.php?id=$ID'>" . $row["Name"]  . "</a></td>";
+			echo "<td> <a href='applicants_profile.php?id=$ID'>" . $row["Name"]  . "</a></td>";
 			echo "<td>" . $row["pointOfOrigin"]  .  "</td>";
 			echo "<td>" . $row["municipality"]  .  "</td>";
 			echo "<td>" . $row["dateOfTravel"]  .  "</td>";
