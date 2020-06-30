@@ -49,19 +49,19 @@ $(document).ready(function()
 </script>
 
 <style>
-.zoom {
-  padding: 50px;
-
-  transition: transform .2s; /* Animation */
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
+img.bigger {
+  border: 1px solid #ddd; /* Gray border */
+  border-radius: 4px;  /* Rounded border */
+  padding: 5px; /* Some padding */
+  width: 150px; /* Set a small width */
 }
 
-.zoom:hover {
-  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+/* Add a hover effect (blue shadow) */
+img:hover.bigger {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
 </style>
+
 
 </head>
 
@@ -122,9 +122,11 @@ while ($row = mysqli_fetch_array($result)) {
                                     <h1>Travel Pass/Authority</h1>
                                 </div>
                                 <div class="sectionContent">
+
+                                
                                     <?php
                                          $filename = $row['travelpass_path'];
-                                         echo "<img alt='Reload to load picture' class='zoom backup_picture' style='width:300px;height:300px;' src='assets/img/uploaded_travelPass/$filename'";
+                                         echo "<a targer='blank' href='assets/img/uploaded_travelPass/$filename'> <img alt='Reload to load picture' class='bigger backup_picture' style='width:300px;height:300px;' src='assets/img/uploaded_travelPass/$filename'> </a>";
                                     ?>
                                 </div>
                                 <div class="clear"></div>
@@ -142,7 +144,7 @@ while ($row = mysqli_fetch_array($result)) {
                                     </h6>
                                    <h6> <?php
                                          $filename = $row['profilePic_path'];
-                                         echo "<img alt='Reload to load picture' class='zoom backup_picture' style='width:300px;height:300px;' src='assets/img/uploaded_picRegistrant/$filename'";
+                                         echo "<a targer='blank' href='assets/img/uploaded_picRegistrant/$filename'> <img alt='Reload to load picture' class='bigger backup_picture' style='width:300px;height:300px;' src='assets/img/uploaded_picRegistrant/$filename'> </a>";
                                     ?></h6>
                                     <h6>Date of Birth: <?php echo $row['dateOfBirth']; ?></h6>
                                     <h6>Cevil Status: <?php echo $row['civilStatus']; ?></h6>

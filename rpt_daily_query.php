@@ -29,8 +29,9 @@ if ( isset( $_SESSION['id'] ) ) {
     <?php
 
 	//include 'dbConfig.php';
-	// $mysqli = new mysqli($servername = "localhost",  "root", "", "nsrrrdb");
-	$mysqli = new mysqli($servername = "localhost",  "id13939868_database_ine", "xf\$GXL+j}>4z0<9o", "id13939868_nsrrrdb");
+	
+	 $mysqli = new mysqli($servername = "localhost",  "root", "", "nsrrrdb");
+	//$mysqli = new mysqli($servername = "localhost",  "id13939868_database_ine", "xf\$GXL+j}>4z0<9o", "id13939868_nsrrrdb");
 	//$mysqli->query ("SELECT firstName, middleName, lastName, pointOfOrigin, municipality, dateOfTravel, contactNumberHead FROM applicants ORDER BY municipality ASC, firstName ASC");
 	$sql = "SELECT AP_ID,firstName, middleName, lastName, pointOfOrigin, municipality, dateOfTravel, contactNumberHead FROM applicants ORDER BY municipality ASC, firstName ASC";
 

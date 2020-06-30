@@ -2,8 +2,8 @@
 session_start();
 $message="";
 if(count($_POST)>0) {
-//  $con = mysqli_connect('localhost','root','','nsrrrdb') or die('Unable To connect');
- $con = mysqli_connect('localhost','id13939868_database_ine','xf$GXL+j}>4z0<9o','id13939868_nsrrrdb') or die('Unable To connect');
+  $con = mysqli_connect('localhost','root','','nsrrrdb') or die('Unable To connect');
+ //$con = mysqli_connect('localhost','id13939868_database_ine','xf$GXL+j}>4z0<9o','id13939868_nsrrrdb') or die('Unable To connect');
 $result = mysqli_query($con,"SELECT * FROM login_user WHERE user_name='" . $_POST["usr"] . "' and password = '". $_POST["psw"]."'");
 $row  = mysqli_fetch_array($result);
 if(is_array($row)) {
