@@ -216,7 +216,7 @@ while ($row = mysqli_fetch_array($result)) {
                                                     echo "<td>" . $row["memContactNumber"]  . "</td>";
                                                     echo "<td>" . $row["memAddr"]  . "</</td>";
                                                     $filename = $row['memProfilePic_path'];
-                                                    echo "<td>" . "<img alt='Reload to load picture' class='backup_picture' style='width:250px;height:250px;' src='assets/img/uploaded_picRegistrant/$filename'";
+                                                    echo "<td>" . "<img alt='Reload to load picture' class='backup_picture' style='width:250px;height:250px;' src='assets/img/uploaded_picRegistrant_member/$filename'";
                                                    
                                                   
                                                
