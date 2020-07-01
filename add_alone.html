@@ -17,13 +17,13 @@
     <script src="assets/js/custom.js"></script>
 
 
-    <script> 
-        $(function(){
-          $("#header").load("header.html"); 
-          $("#footer").load("footer.html"); 
-          document.getElementById("form_submit").disabled = true;
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+            document.getElementById("form_submit").disabled = true;
         });
-        </script> 
+    </script>
 
 
 
@@ -32,41 +32,45 @@
 
 <body>
     <header id="header">
-       
-      </header>
+
+    </header>
     <main>
         <div class="section section-md">
             <div class="container">
                 <div class="row mb-4">
                     <div class="col-12">
                         <!--Start of Form-->
-                        <form  autocomplete="off" method="POST" action="add_alone_query.php" enctype="multipart/form-data" >
+                        <form autocomplete="off" method="POST" action="add_alone_query.php"
+                            enctype="multipart/form-data">
                             <!--Personal Details-->
                             <div class="card shadow-soft border p-2 mb-2" style="margin-top: 30px">
-                             
+
                                 <h5 class="en"><strong>A: Local Stranded Individual</strong></h5>
                                 <div class="col-md-12 groupHeader">
                                     <p><strong>PERSONAL DETAILS</strong></p>
                                 </div>
                                 <div class="row mb-3 groupContent">
                                     <div class="col-md-4"></div>
-                                        <div class="col-md-4">
-                                            <img id="output" src="assets/img/favicon/profile picture.png" class="img-thumbnail d-block" style="height:250px;">
-                                            <div class="image-upload">
-                                            
-                                                <a>
+                                    <div class="col-md-4">
+                                        <img id="output" src="assets/img/favicon/profile picture.png"
+                                            class="img-thumbnail d-block" style="height:250px;">
+                                        <div class="image-upload">
+
+                                            <a>
                                                 <label for="file-input">
-                                                    <img  src="assets/img/favicon/icons8_camera_30px.png" style="width:23px;height:23px;"/>
+                                                    <img src="assets/img/favicon/icons8_camera_30px.png"
+                                                        style="width:23px;height:23px;" />
                                                     UPLOAD PROFILE PICTURE
                                                 </label>
                                             </a>
 
-                                                <input id="file-input" name="file2" type="file" accept="image/*" required onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
-                                                                
-                                              </div>
-                                                          
-                                           
+                                            <input id="file-input" name="file2" type="file" accept="image/*" required
+                                                onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+
                                         </div>
+
+
+                                    </div>
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4">
                                         <label style="color: #e85a4f;" class="mr-1">*</label><label
@@ -74,7 +78,7 @@
                                         <input class="form-control form-control-sm mb-2" id="firstName" name="firstName"
                                             value="" type="text" required>
                                     </div>
-                                 
+
                                     <div class="col-md-4">
                                         <label style="color: #66799e;">Middle name</label>
                                         <input class="form-control form-control-sm mb-2" id="middleName"
@@ -142,7 +146,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <label style="color: #66799e;">Alt Contact Number: </label>
-                                        <input  class="form-control form-control-sm mb-2" name="altContactNumberHead"
+                                        <input class="form-control form-control-sm mb-2" name="altContactNumberHead"
                                             id="altContactNumberHead" value="" type="text" placeholder="09XXXXXXXXX"
                                             maxlength="13">
                                     </div>
@@ -150,11 +154,11 @@
                                         <label style="color: #66799e;">Alt Email (Optional): </label>
                                         <input class="form-control form-control-sm mb-2" name="altEmailHead"
                                             id="altEmailHead" value="" type="text" placeholder="example@gmail">
-                                    </div>                                 
-                               
+                                    </div>
+
+                                </div>
                             </div>
-                            </div>
-                         
+
 
                             <!--Departure-->
                             <div class="card shadow-soft border p-2 mb-2">
@@ -183,8 +187,10 @@
                                     <div class="col-md-4">
                                         <p class="text-danger">
                                             <label style="color: #e85a4f;" class="mr-1">*</label>
-                                            <label style="color: #66799e;">Attach a photo of your Travel Pass</label><br>
-                                            <input type="file" name="file" capture="camera" accept="image/x-png,image/jpeg,image/jpg" required>
+                                            <label style="color: #66799e;">Attach a photo of your Travel
+                                                Pass</label><br>
+                                            <input type="file" name="file" capture="camera"
+                                                accept="image/x-png,image/jpeg,image/jpg" required>
                                         </p>
                                     </div>
 
@@ -252,7 +258,7 @@
                             <!--Others Members-->
                             <!--For bigger reso-->
                             <!--For lower reso-->
-                          
+
                             <!--Agreement-->
                             <div class="card shadow-soft border p-2 mb-2">
                                 <h5 class="en"><strong>C: Agreement</strong></h5>
@@ -303,23 +309,24 @@
     <!-- Footer -->
     <footer class="text-muted">
         <div class="container">
-          <p class="float-right">
-            <a href="#">Back to top</a>
-          </p>
-          <p> &copy;Northern Samar Returning Residents Registration</p>
-   
+            <p class="float-right">
+                <a href="#">Back to top</a>
+            </p>
+            <p> &copy;Northern Samar Returning Residents Registration</p>
+
         </div>
-      </footer>
+    </footer>
 </body>
 
 <script>
-$('input:radio[name="my_agg"]').change(function() {
-    if ($(this).val() == 'Yes'){
-     document.getElementById("form_submit").disabled = false;
-   }
-   if ($(this).val() == 'No'){
-    document.getElementById("form_submit").disabled = true;
-  }
-});  
+    $('input:radio[name="my_agg"]').change(function () {
+        if ($(this).val() == 'Yes') {
+            document.getElementById("form_submit").disabled = false;
+        }
+        if ($(this).val() == 'No') {
+            document.getElementById("form_submit").disabled = true;
+        }
+    });  
 </script>
+
 </html>

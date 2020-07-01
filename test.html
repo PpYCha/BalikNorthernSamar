@@ -9,7 +9,7 @@
 
   <script>
 
-$cntr = 1;
+    $cntr = 1;
 
     $().ready(function () {
       var objThis;
@@ -19,8 +19,8 @@ $cntr = 1;
       });
 
 
-  
-         
+
+
 
       $('#copy-button').click(function () {
         $cntr++;
@@ -31,19 +31,19 @@ $cntr = 1;
         cloneElement.find(".file-input-area").show();
         cloneElement.find(".uploaded-image-div").hide();
 
-    // Selecting last id 
-    var lastname_id = $('.clone-element input[type=text]:nth-child(1)').last().attr('placeholder');
-                var split_id = lastname_id.split(' ');
+        // Selecting last id 
+        var lastname_id = $('.clone-element input[type=text]:nth-child(1)').last().attr('placeholder');
+        var split_id = lastname_id.split(' ');
 
-                // New index
-                var index = Number(split_id[1]) + 1;
+        // New index
+        var index = Number(split_id[1]) + 1;
 
 
         cloneElement.find('p').replaceWith("<p>MEMBER " + $cntr + "</p>");
-        cloneElement.find('p1').replaceWith("<p1>Attach Profile Picture of Member " + $cntr + "</p1>" );
+        cloneElement.find('p1').replaceWith("<p1>Attach Profile Picture of Member " + $cntr + "</p1>");
         cloneElement.insertAfter(target);
 
-       
+
       });
 
       function readURL(input) {
@@ -110,7 +110,8 @@ $cntr = 1;
           <div class="file-input-area">
             <img id="output" src="assets/img/favicon/profile picture.png" class="img-thumbnail " style="height:250px;">
             <br>
-           <img src="assets/img/favicon/icons8_camera_30px.png" style="width:23px;height:23px;" /> <p1>Attach Profile Picture of Member 1<p1>
+            <img src="assets/img/favicon/icons8_camera_30px.png" style="width:23px;height:23px;" />
+            <p1>Attach Profile Picture of Member 1<p1>
 
           </div>
 
@@ -137,7 +138,7 @@ $cntr = 1;
           name="memberAddrs[]" type="text" required>
       </div>
     </div>
-<hr>
+    <hr>
     <input type="button" class="btn btn-primary" id="copy-button" title="add new image and desciption"
       value="Add Member">
   </div>
