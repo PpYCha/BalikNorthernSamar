@@ -3,11 +3,10 @@
 
 <head>
     <link rel="shortcut icon" href="images/favicon.nsamarLogo.ico" />
-    <title>Individual Applicants</title>
+    <title>Group Applicants</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="assets/img/favicon/nsamarLogo.ico">
-
     <!--Bootstrap css-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/custom-design.css">
@@ -16,70 +15,145 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/custom.js"></script>
 
+    <script>
 
-    <script> 
-        $(function(){
-          $("#header").load("header.html"); 
-          $("#footer").load("footer.html"); 
-          document.getElementById("form_submit").disabled = true;
+        $().ready(function () {
+            var objThis;
+            $("body").on("click", ".file-input-area", function () {
+                objThis = $(this).parents('.clone-element');
+                $("#file-upload").click();
+            });
+
+            $('#copy-button').click(function () {
+                $cntr = 1;
+                $cntr++;
+                // Selecting last id 
+                var lastname_id = $('.clone-element input[type=text]:nth-child(1)').last().attr('placeholder');
+                var split_id = lastname_id.split(' ');
+                // New index
+                var index = Number(split_id[1]) + 1;
+
+                var target = $('.clone-element:last');
+                var cloneElement = target.clone();
+                cloneElement.find('.output').attr('src', 'assets/img/favicon/profile picture.png');
+                cloneElement.find('textarea').val('');
+                cloneElement.find(".file-input-area").show();
+                cloneElement.find(".uploaded-image-div").hide();
+                cloneElement.insertAfter(target);
+
+                $(cloneElement).find('input[type=text]').val('');
+
+                cloneElement.find('p').replaceWith("<p>MEMBER " + $cntr + "</p>");
+                cloneElement.find('p1').replaceWith("<p1>Attach Profile Picture of Member " + index + "</p1>");
+
+            });
+
+            function readURL(input) {
+
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        objThis.find('#uploaded-image').attr('src', e.target.result).css({
+
+                            'height': '250px'
+                        });
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $("#file-upload").change(function () {
+                objThis.find(".file-input-area").hide();
+                objThis.find(".uploaded-image-div").show();
+                readURL(this);
+            });
         });
-        </script> 
 
 
+    </script>
 
+
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+            document.getElementById("form_submit").disabled = true;
+        });
+    </script>
 
 </head>
 
 <body>
     <header id="header">
-       
-      </header>
+
+    </header>
     <main>
         <div class="section section-md">
             <div class="container">
                 <div class="row mb-4">
                     <div class="col-12">
                         <!--Start of Form-->
-                        <form  autocomplete="off" method="POST" action="add_alone_query.php" enctype="multipart/form-data" >
+                        <form autocomplete="off" method="POST" action="add_withgroup_query.php"
+                            enctype="multipart/form-data">
                             <!--Personal Details-->
                             <div class="card shadow-soft border p-2 mb-2" style="margin-top: 30px">
-                             
-                                <h5 class="en"><strong>A: Local Stranded Individual</strong></h5>
+                                <h5 class="en"><strong>A: Head of the Group</strong></h5>
                                 <div class="col-md-12 groupHeader">
                                     <p><strong>PERSONAL DETAILS</strong></p>
                                 </div>
+
                                 <div class="row mb-3 groupContent">
-                                    <div class="col-md-4"></div>
-                                        <div class="col-md-4">
-                                            <img id="output" src="assets/img/favicon/profile picture.png" class="img-thumbnail d-block" style="height:250px;">
-                                            <div class="image-upload">
-                                            
-                                                <a>
+
+
+                                    <div class="col-md-4">
+
+                                    </div>
+                                    <div class="col-md-4">
+
+                                        <img id="output" src="assets/img/favicon/profile picture.png"
+                                            class="img-thumbnail d-block" style="height:250px;">
+                                        <br>
+                                        <div class="image-upload">
+
+                                            <a>
                                                 <label for="file-input">
-                                                    <img  src="assets/img/favicon/icons8_camera_30px.png" style="width:23px;height:23px;"/>
-                                                    UPLOAD PROFILE PICTURE
+                                                    <img src="assets/img/favicon/icons8_camera_30px.png"
+                                                        style="width:23px;height:23px;" />
+                                                    UPLOAD LEADER PROFILE PICTURE
                                                 </label>
                                             </a>
 
-                                                <input id="file-input" name="file2" type="file" accept="image/*" required onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
-                                                                
-                                              </div>
-                                                          
-                                           
+                                            <input id="file-input" name="groupLeaderPic" type="file"
+                                                accept="image/x-png,image/jpeg,image/jpg" capture="camera" required
+                                                onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+
                                         </div>
-                                    <div class="col-md-4"></div>
+                                        <!-- <label style="color: #e85a4f;" class="mr-1">*</label><label
+                                                    style="color: #66799e;">Attach your photo</label>
+                                                <input type="file" name="groupLeaderPic" capture="camera" accept="image/x-png,image/jpeg,image/jpg" required>  
+                                             -->
+                                    </div>
+
+                                    <div class="col-md-4">
+
+                                    </div>
+
                                     <div class="col-md-4">
                                         <label style="color: #e85a4f;" class="mr-1">*</label><label
                                             style="color: #66799e;">Firstname</label>
                                         <input class="form-control form-control-sm mb-2" id="firstName" name="firstName"
                                             value="" type="text" required>
                                     </div>
-                                 
+
+
                                     <div class="col-md-4">
                                         <label style="color: #66799e;">Middle name</label>
                                         <input class="form-control form-control-sm mb-2" id="middleName"
                                             name="middleName" value="" type="text">
                                     </div>
+
 
                                     <div class="col-md-4">
                                         <label style="color: #e85a4f;" class="mr-1">*</label><label
@@ -98,6 +172,7 @@
                                             maxlength="10" required>
                                     </div>
 
+
                                     <div class="col-md-4">
                                         <label style="color: rgb(232, 90, 79);" class="en mr-1">*</label><label
                                             class="en" style="color: rgb(102, 121, 158);">Civil Status</label>
@@ -112,7 +187,6 @@
                                             <option>With Common-Law Partner/ Cohabitating</option>
                                         </select>
                                     </div>
-
                                     <div class="col-md-4">
                                         <label style="color: rgb(232, 90, 79);" class="en mr-1">*</label><label
                                             class="en" style="color: rgb(102, 121, 158);">Present Complete
@@ -121,7 +195,6 @@
                                             name="presentCompleteAddress" value="" id="presentCompleteAddress"
                                             type="text" placeholder="House#, St., Brgy, City/Municipality" required>
                                     </div>
-
                                 </div>
 
                                 <div class="col-md-12 groupHeader">
@@ -135,27 +208,24 @@
                                             id="contactNumberHead" value="" type="text" required=""
                                             placeholder="09XXXXXXXXX" maxlength="13">
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <label style="color: #66799e;">Email (Optional): </label>
                                         <input class="form-control form-control-sm mb-2" name="emailHead" id="emailHead"
                                             value="" type="text" placeholder="example@gmail">
                                     </div>
                                     <div class="col-md-4">
                                         <label style="color: #66799e;">Alt Contact Number: </label>
-                                        <input  class="form-control form-control-sm mb-2" name="altContactNumberHead"
+                                        <input class="form-control form-control-sm mb-2" name="altContactNumberHead"
                                             id="altContactNumberHead" value="" type="text" placeholder="09XXXXXXXXX"
                                             maxlength="13">
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <label style="color: #66799e;">Alt Email (Optional): </label>
                                         <input class="form-control form-control-sm mb-2" name="altEmailHead"
                                             id="altEmailHead" value="" type="text" placeholder="example@gmail">
-                                    </div>                                 
-                               
+                                    </div>
+                                </div>
                             </div>
-                            </div>
-                         
-
                             <!--Departure-->
                             <div class="card shadow-soft border p-2 mb-2">
                                 <h5 class="en"><strong>B: Travel Details</strong></h5>
@@ -180,11 +250,15 @@
                                                 placeholder="mm/dd/yyyy" required>
                                         </p>
                                     </div>
+
                                     <div class="col-md-4">
                                         <p class="text-danger">
                                             <label style="color: #e85a4f;" class="mr-1">*</label>
-                                            <label style="color: #66799e;">Attach a photo of your Travel Pass</label><br>
-                                            <input type="file" name="file" capture="camera" accept="image/x-png,image/jpeg,image/jpg" required>
+                                            <label style="color: #66799e;">Attach a photo of your group Travel
+                                                Pass</label><br>
+                                            <input type="file" name="groupTravelPass" capture="camera"
+                                                accept="image/x-png,image/jpeg,image/jpg">
+
                                         </p>
                                     </div>
 
@@ -252,10 +326,62 @@
                             <!--Others Members-->
                             <!--For bigger reso-->
                             <!--For lower reso-->
-                          
+                            <div class="card shadow-soft border p-2 mb-2">
+                                <h5 class="en"><strong>C: Other members on the group (Excluding the head /
+                                        leader):</strong></h5>
+                                <div class="row clone-element">
+
+                                    <div class="col-md-4 ">
+                                        <!-- blank column -->
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group  my-auto">
+                                            <p>MEMBER 1</p>
+                                            <input type="file" name="memberPic[]" id="file-upload"
+                                                style="display:none !important;" />
+
+                                            <div class="file-input-area">
+                                                <img id="output" src="assets/img/favicon/profile picture.png"
+                                                    class="img-thumbnail " style="height:250px;">
+                                                <br>
+                                                <img src="assets/img/favicon/icons8_camera_30px.png"
+                                                    style="width:23px;height:23px;" />
+                                                <p1>Attach Profile Picture of Member 1<p1>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="uploaded-image-div" style="display:none;">
+                                            <img src="#" id="uploaded-image" alt="uploaded-image">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-4 ">
+                                        <!-- blank column -->
+                                    </div>
+                                    <div class="col-md-4 ">
+                                        <input class="form-control form-control-sm  mb-1 member" placeholder="Name"
+                                            name="memberFName[]" type="text" required>
+                                    </div>
+                                    <div class="col-md-4 ">
+                                        <input class="form-control form-control-sm  mb-1 member"
+                                            placeholder="Contact Number" name="memberContactNum[]" type="text" required>
+                                    </div>
+                                    <div class="col-md-4 ">
+                                        <input class="form-control form-control-sm  mb-1 member"
+                                            placeholder="Local or Provincial Address" name="memberAddrs[]" type="text"
+                                            required>
+                                    </div>
+                                </div>
+                                <hr>
+                                <input type="button" class="btn btn-secondary shadow-soft" id="copy-button"
+                                    title="add new image and desciption" value="Add Member">
+                            </div>
                             <!--Agreement-->
                             <div class="card shadow-soft border p-2 mb-2">
-                                <h5 class="en"><strong>C: Agreement</strong></h5>
+                                <h5 class="en"><strong>D: Agreement</strong></h5>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <p class="en">I hereby certify that the above statements are true and
@@ -303,23 +429,25 @@
     <!-- Footer -->
     <footer class="text-muted">
         <div class="container">
-          <p class="float-right">
-            <a href="#">Back to top</a>
-          </p>
-          <p> &copy;Northern Samar Returning Residents Registration</p>
-   
+            <p class="float-right">
+                <a href="#">Back to top</a>
+            </p>
+            <p> &copy;Northern Samar Balik Samar Project</p>
+
         </div>
-      </footer>
+    </footer>
+
 </body>
 
 <script>
-$('input:radio[name="my_agg"]').change(function() {
-    if ($(this).val() == 'Yes'){
-     document.getElementById("form_submit").disabled = false;
-   }
-   if ($(this).val() == 'No'){
-    document.getElementById("form_submit").disabled = true;
-  }
-});  
+    $('input:radio[name="my_agg"]').change(function () {
+        if ($(this).val() == 'Yes') {
+            document.getElementById("form_submit").disabled = false;
+        }
+        if ($(this).val() == 'No') {
+            document.getElementById("form_submit").disabled = true;
+        }
+    });  
 </script>
+
 </html>

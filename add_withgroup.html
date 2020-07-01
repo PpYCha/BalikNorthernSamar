@@ -36,10 +36,11 @@
                 // Set id of new element
                 //$(newel).find('input["type=text]:nth-child(1)').attr("placeholder", "Name " + index);
                 $(newel).find('p').replaceWith("<p>MEMBER " + $cntr + "</p>");
-                $(newel).find('p1').replaceWith("<p1>Attach MEMBER " + $cntr + " photo" + "</p1>");
+                $(newel).find('p1').replaceWith("<p1>Attach Profile Picture of Member " + $cntr + "</p1>");
                 // Set value
         $(newel).find('input[type=text]').val('');
          $(newel).find('input[type=file]').val('');
+         $(newel).find('img').attr('src', 'assets/img/favicon/profile picture.png');
                 // Insert element
                 $(newel).insertAfter(".groupColumnContentInputs:last");
             });
@@ -89,16 +90,31 @@
                                 
                                 <div class="row mb-3 groupContent">
 
-                                    <div class="col-md-4">
-                                        <label style="color: #e85a4f;" class="mr-1">*</label><label
-                                            style="color: #66799e;">Attach your photo</label>
-                                        <input type="file" name="groupLeaderPic" capture="camera" accept="image/x-png,image/jpeg,image/jpg" required>  
                                     
-                                    </div>
-
                                     <div class="col-md-4">
-                            
+                                        
                                     </div>
+                                            <div class="col-md-4">
+        
+                                                <img id="output" src="assets/img/favicon/profile picture.png" class="img-thumbnail d-block" style="height:250px;">
+                                                <br>
+                                                <div class="image-upload">
+                                                
+                                                    <a>
+                                                    <label for="file-input">
+                                                        <img  src="assets/img/favicon/icons8_camera_30px.png" style="width:23px;height:23px;"/>
+                                                        UPLOAD LEADER PROFILE PICTURE
+                                                    </label>
+                                                   </a>
+                                                 
+                                                    <input id="file-input" name="groupLeaderPic" type="file" accept="image/x-png,image/jpeg,image/jpg" capture="camera" required onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+                                                                    
+                                                  </div>
+                                                <!-- <label style="color: #e85a4f;" class="mr-1">*</label><label
+                                                    style="color: #66799e;">Attach your photo</label>
+                                                <input type="file" name="groupLeaderPic" capture="camera" accept="image/x-png,image/jpeg,image/jpg" required>  
+                                             -->
+                                            </div>
 
                                     <div class="col-md-4">
                                         
@@ -296,31 +312,51 @@
                                     <div class="groupColumnContentInputs">
                                         
 
-                                            <p>MEMBER 1</p>
-                                            <p1>Attach member 1 photo</p1>
-                                        <div class="row mb-1">
-                                            <div class="col-md-4 ">                                                       
+                                          
+                                           
+                                        <div class="row mb-1 ">
+                                            <div class="col-md-4 ">    
+                                                     <!-- blank column -->
                                             </div>
                                    
-                                            <div class="col-md-4"  > 
-                                                <input type="file" name="memberPic[]" capture="camera" accept="image/x-png,image/jpeg,image/jpg" required>
+                                            <div class="col-md-4 my-auto pb-lg-3" > 
+                                                <p>MEMBER 1</p>
+                                                <img id="output1"  src="assets/img/favicon/profile picture.png" class="img-thumbnail " style="height:250px;">
+                                                <br>
+                                                    <!-- <div class="image-upload"> -->
+                                                    <p1>Attach Profile Picture of Member 1 </p1>
+                                                    
+                                                    <!-- <label for="file-input-member">
+                                                        <img  src="assets/img/favicon/icons8_camera_30px.png" style="width:23px;height:23px;"/>
+                                                        UPLOAD MEMBER PROFILE PICTURE
+                                                    </label> -->
+                                                   
+                                                     <br>
+                                                    <input id="file-input-member" name="memberPic[]" type="file" accept="image/x-png,image/jpeg,image/jpg" style="color:transparent; width:80px; font-size: 12px" capture="camera" required onchange="document.getElementById('output1').src = window.URL.createObjectURL(this.files[0])">
+                                                <!-- </div> -->
+                                                       
+                                                <!-- <input type="file" name="memberPic[]" capture="camera" accept="image/x-png,image/jpeg,image/jpg" required> -->
                                              </div>
-                                            <div class="col-md-4"></div>
+                                             
+                                            <div class="col-md-4">   
+                                                 <!-- blank column -->
+                                            </div>
                                             <div class="col-md-4 ">
                                                 <input class="form-control form-control-sm  mb-1 member"
-                                                    placeholder="Name" name="memberFName[]" type="text">
+                                                    placeholder="Name" name="memberFName[]" type="text" required>
                                             </div>
                                             <div class="col-md-4 ">
                                                 <input  class="form-control form-control-sm  mb-1 member"
-                                                    placeholder="Contact Number" name="memberContactNum[]" type="text">
+                                                    placeholder="Contact Number" name="memberContactNum[]" type="text" required>
                                             </div>
                                             <div class="col-md-4 ">
                                                 <input class="form-control form-control-sm  mb-1 member"
                                                     placeholder="Local or Provincial Address" name="memberAddrs[]"
-                                                    type="text">
+                                                    type="text" required>
                                             </div>
                                         
                                         </div>
+
                                         <strong>
                                             <hr></strong>
                                     </div>
