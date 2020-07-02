@@ -116,7 +116,7 @@ if (isset($_POST["submit"]) && !empty($_FILES["groupTravelPass"]["name"])) {
 				$file_type=$_FILES['memberPic']['type'][$key];  
 				$target_file = $path . basename($_FILES["memberPic"]["name"][$key]);
         
-       echo $file_name . "<br>";
+ 
 				
                         // ADVANCED OPTIONS - Allow certain file formats
 				$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -149,11 +149,11 @@ if (isset($_POST["submit"]) && !empty($_FILES["groupTravelPass"]["name"])) {
 		}
 		
 		
+		header('Location:success_page.html');
+		$mysqli->close();
 	}
-	$mysqli->close();
- header('Location:success_page.html');
-}
-}
 
+}
+}
 
 ?>

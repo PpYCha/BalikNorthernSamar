@@ -25,19 +25,17 @@ header("Location:rpt_daily.php");
 
   <meta charset="UTF-8">
 
-  <title>CodePen - Login </title>
+  <title>LOGIN </title>
 
-  <link rel="stylesheet" href="css/reset.css">
+
+  <!-- Bootstrap core CSS -->
 
     <link rel="stylesheet" href="assets/css/style_login.css" media="screen" type="text/css" />
-
-    <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     
     <script src="assets/js/jquery-3.1.1.min.js" > </script>
 
     <script> 
-
 $(function(){
   $("#header").load("header.html"); 
   $("#footer").load("footer.html"); 

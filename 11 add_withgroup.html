@@ -15,64 +15,47 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/custom.js"></script>
 
-    <script>
+    <script type="text/javascript">
 
-        $().ready(function () {
-            var objThis;
-            $("body").on("click", ".file-input-area", function () {
-                objThis = $(this).parents('.clone-element');
-                $("#file-upload").click();
-            });
+        $(document).ready(function () {
 
-            $('#copy-button').click(function () {
-                $cntr = 1;
+            $cntr = 1;
+            $('#add_more').click(function () {
                 $cntr++;
                 // Selecting last id 
-                var lastname_id = $('.clone-element input[type=text]:nth-child(1)').last().attr('placeholder');
+                var lastname_id = $('.groupColumnContentInputs input[type=text]:nth-child(1)').last().attr('placeholder');
                 var split_id = lastname_id.split(' ');
+
                 // New index
                 var index = Number(split_id[1]) + 1;
 
-                var target = $('.clone-element:last');
-                var cloneElement = target.clone();
-                cloneElement.find('.output').attr('src', 'assets/img/favicon/profile picture.png');
-                cloneElement.find('textarea').val('');
-                cloneElement.find(".file-input-area").show();
-                cloneElement.find(".uploaded-image-div").hide();
-                cloneElement.insertAfter(target);
+                // Create clone
+                var newel = $('.groupColumnContentInputs:last').clone(true);
 
-                $(cloneElement).find('input[type=text]').val('');
-
-                cloneElement.find('p').replaceWith("<p>MEMBER " + $cntr + "</p>");
-                cloneElement.find('p1').replaceWith("<p1>Attach Profile Picture of Member " + index + "</p1>");
-
+                //alert($cntr);
+                // Set id of new element
+                //$(newel).find('input["type=text]:nth-child(1)').attr("placeholder", "Name " + index);
+                $(newel).find('p').replaceWith("<p>MEMBER " + $cntr + "</p>");
+                $(newel).find('p1').replaceWith("<p1>Attach Profile Picture of Member " + $cntr + "</p1>");
+                // Set value
+                $(newel).find('input[type=text]').val('');
+                $(newel).find('input[type=file]').val('');
+                $(newel).find('img').attr('src', 'assets/img/favicon/profile picture.png');
+                // Insert element
+                $(newel).insertAfter(".groupColumnContentInputs:last");
             });
 
-            function readURL(input) {
-
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-
-                    reader.onload = function (e) {
-                        objThis.find('#uploaded-image').attr('src', e.target.result).css({
-
-                            'height': '250px'
-                        });
-                    }
-
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-
-            $("#file-upload").change(function () {
-                objThis.find(".file-input-area").hide();
-                objThis.find(".uploaded-image-div").show();
-                readURL(this);
+            $('.txt').focus(function () {
+                $(this).css('border-color', 'red');
             });
+
+            $('.txt').focusout(function () {
+                $(this).css('border-color', 'initial');
+            });
+
         });
-
-
     </script>
+
 
 
     <script>
@@ -89,6 +72,8 @@
     <header id="header">
 
     </header>
+
+
     <main>
         <div class="section section-md">
             <div class="container">
@@ -329,55 +314,74 @@
                             <div class="card shadow-soft border p-2 mb-2">
                                 <h5 class="en"><strong>C: Other members on the group (Excluding the head /
                                         leader):</strong></h5>
-                                <div class="row clone-element">
+                                <div class="groupColumnContent ">
 
-                                    <div class="col-md-4 ">
-                                        <!-- blank column -->
-                                    </div>
+                                    <div class="groupColumnContentInputs">
 
-                                    <div class="col-md-4">
-                                        <div class="form-group  my-auto">
-                                            <p>MEMBER 1</p>
-                                            <input type="file" name="memberPic[]" id="file-upload"
-                                                style="display:none !important;" />
 
-                                            <div class="file-input-area">
-                                                <img id="output" src="assets/img/favicon/profile picture.png"
+
+
+                                        <div class="row mb-1 ">
+                                            <div class="col-md-4 ">
+                                                <!-- blank column -->
+                                            </div>
+
+                                            <div class="col-md-4 my-auto pb-lg-3">
+                                                <p>MEMBER 1</p>
+                                                <img id="output1" src="assets/img/favicon/profile picture.png"
                                                     class="img-thumbnail " style="height:250px;">
                                                 <br>
-                                                <img src="assets/img/favicon/icons8_camera_30px.png"
-                                                    style="width:23px;height:23px;" />
-                                                <p1>Attach Profile Picture of Member 1<p1>
+                                                <!-- <div class="image-upload"> -->
+                                                <p1>Attach Profile Picture of Member 1 </p1>
 
+                                                <!-- <label for="file-input-member">
+                                                        <img  src="assets/img/favicon/icons8_camera_30px.png" style="width:23px;height:23px;"/>
+                                                        UPLOAD MEMBER PROFILE PICTURE
+                                                    </label> -->
+
+                                                <br>
+                                                <input id="file-input-member" name="memberPic[]" type="file"
+                                                    accept="image/x-png,image/jpeg,image/jpg"
+                                                    style="color:transparent; width:80px; font-size: 12px"
+                                                    capture="camera" required
+                                                    onchange="document.getElementById('output1').src = window.URL.createObjectURL(this.files[0])">
+                                                <!-- </div> -->
+
+                                                <!-- <input type="file" name="memberPic[]" capture="camera" accept="image/x-png,image/jpeg,image/jpg" required> -->
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <!-- blank column -->
+                                            </div>
+                                            <div class="col-md-4 ">
+                                                <input class="form-control form-control-sm  mb-1 member"
+                                                    placeholder="Name" name="memberFName[]" type="text" required>
+                                            </div>
+                                            <div class="col-md-4 ">
+                                                <input class="form-control form-control-sm  mb-1 member"
+                                                    placeholder="Contact Number" name="memberContactNum[]" type="text"
+                                                    required>
+                                            </div>
+                                            <div class="col-md-4 ">
+                                                <input class="form-control form-control-sm  mb-1 member"
+                                                    placeholder="Local or Provincial Address" name="memberAddrs[]"
+                                                    type="text" required>
                                             </div>
 
                                         </div>
-                                        <div class="uploaded-image-div" style="display:none;">
-                                            <img src="#" id="uploaded-image" alt="uploaded-image">
+
+                                        <strong>
+                                            <hr></strong>
+                                    </div>
+
+                                    <div class="row mb-2">
+                                        <div class="col-md-12">
+                                            <button type="button" class="btn btn-secondary shadow-soft"
+                                                style="width: 50%; margin:0" id="add_more">Add More</button>
                                         </div>
-
                                     </div>
 
-                                    <div class="col-md-4 ">
-                                        <!-- blank column -->
-                                    </div>
-                                    <div class="col-md-4 ">
-                                        <input class="form-control form-control-sm  mb-1 member" placeholder="Name"
-                                            name="memberFName[]" type="text" required>
-                                    </div>
-                                    <div class="col-md-4 ">
-                                        <input class="form-control form-control-sm  mb-1 member"
-                                            placeholder="Contact Number" name="memberContactNum[]" type="text" required>
-                                    </div>
-                                    <div class="col-md-4 ">
-                                        <input class="form-control form-control-sm  mb-1 member"
-                                            placeholder="Local or Provincial Address" name="memberAddrs[]" type="text"
-                                            required>
-                                    </div>
                                 </div>
-                                <hr>
-                                <input type="button" class="btn btn-secondary shadow-soft" id="copy-button"
-                                    title="add new image and desciption" value="Add Member">
                             </div>
                             <!--Agreement-->
                             <div class="card shadow-soft border p-2 mb-2">
