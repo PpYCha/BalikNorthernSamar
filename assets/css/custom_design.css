@@ -1,13 +1,13 @@
-/* body {
+body {
     min-height:100%;
     background:linear-gradient(0deg, rgba(27, 12, 47, 0.431), rgba(12, 14, 31, 0.3)), url(../img/favicon/bg.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;  
     background-size: cover;
  
-    backdrop-filter: blur(80px);
+    /* backdrop-filter: blur(10px); */
 
-  } */
+  }
 
 
 

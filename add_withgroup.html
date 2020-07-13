@@ -9,7 +9,7 @@
     <link rel="icon" href="assets/img/favicon/nsamarLogo.ico">
     <!--Bootstrap css-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/custom-design.css">
+    <link rel="stylesheet" href="assets/css/custom_design.css">
     <!-- Latest compiled JavaScript -->
     <script src="assets/js/jquery-3.1.1.min.js" type="text/javascript"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -36,11 +36,11 @@
                 // Set id of new element
                 //$(newel).find('input["type=text]:nth-child(1)').attr("placeholder", "Name " + index);
                 $(newel).find('p').replaceWith("<p>MEMBER " + $cntr + "</p>");
-                $(newel).find('p1').replaceWith("<p1>Attach Profile Picture of Member " + $cntr + "</p1>");
+                $(newel).find('p1').replaceWith("<p1><b>Attach Profile Picture of Member " + $cntr + "</b></p1>");
                 // Set value
                 $(newel).find('input[type=text]').val('');
                 $(newel).find('input[type=file]').val('');
-                $(newel).find('img').attr('src', 'assets/img/favicon/profile picture.png');
+             
                 // Insert element
                 $(newel).insertAfter(".groupColumnContentInputs:last");
             });
@@ -328,23 +328,22 @@
 
                                             <div class="col-md-4 my-auto pb-lg-3">
                                                 <p>MEMBER 1</p>
-                                                <img id="output1" src="assets/img/favicon/profile picture.png"
-                                                    class="img-thumbnail " style="height:250px;">
-                                                <br>
+                                                <!-- <img id="output1" src="assets/img/favicon/profile picture.png"
+                                                    class="img-thumbnail " style="height:250px;"> -->
+                                             
                                                 <!-- <div class="image-upload"> -->
-                                                <p1>Attach Profile Picture of Member 1 </p1>
+                                                <p1><b>Attach Profile Picture of Member 1 </b></p1>
 
                                                 <!-- <label for="file-input-member">
                                                         <img  src="assets/img/favicon/icons8_camera_30px.png" style="width:23px;height:23px;"/>
                                                         UPLOAD MEMBER PROFILE PICTURE
                                                     </label> -->
 
-                                                <br>
+                                            
                                                 <input id="file-input-member" name="memberPic[]" type="file"
                                                     accept="image/x-png,image/jpeg,image/jpg"
-                                                    style="color:transparent; width:80px; font-size: 12px"
-                                                    capture="camera" required
-                                                    onchange="document.getElementById('output1').src = window.URL.createObjectURL(this.files[0])">
+                                                  
+                                                    capture="camera" required>
                                                 <!-- </div> -->
 
                                                 <!-- <input type="file" name="memberPic[]" capture="camera" accept="image/x-png,image/jpeg,image/jpg" required> -->
